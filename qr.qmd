@@ -283,7 +283,7 @@ with(mres2, t(Q) %*% Q)
 
 ## QR by Householder transform
 
-<img src="http://www-history.mcs.st-andrews.ac.uk/BigPictures/Householder_2.jpeg" width="200" align="center"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Alston_Householder.jpg" width="200" align="center"/>
 
 [Alston Scott Householder (1904-1993)](https://en.wikipedia.org/wiki/Alston_Scott_Householder)
 

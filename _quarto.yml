@@ -5,6 +5,7 @@ project:
     - README.md
     - install.R
     - runtime.txt
+    - QR_by_Givens.png
 
 filters:
   - collapse-output
