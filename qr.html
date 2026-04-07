@@ -4223,7 +4223,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 2026</p>
+      <p class="date">April 2026</p>
     </div>
   </div>
   
@@ -4263,7 +4263,7 @@ attached base packages:
 loaded via a namespace (and not attached):
  [1] compiler_4.5.3  fastmap_1.2.0   cli_3.6.5       tools_4.5.3    
  [5] htmltools_0.5.9 yaml_2.3.12     rmarkdown_2.31  knitr_1.51     
- [9] jsonlite_2.0.0  xfun_0.57       digest_0.6.39   rlang_1.1.7    
+ [9] jsonlite_2.0.0  xfun_0.57       digest_0.6.39   rlang_1.2.0    
 [13] evaluate_1.0.5 </code></pre>
 </div>
 </details>
@@ -4332,7 +4332,7 @@ Coefficients:
 <li>Last <span class="math inline">\(n-p\)</span> columns of <span class="math inline">\(\mathbf{Q}\)</span> form an orthonormal basis of <span class="math inline">\({\cal N}(\mathbf{X}^T)\)</span> (<strong>null space</strong> of <span class="math inline">\(\mathbf{X}^T\)</span>)</li>
 <li>Recall that <span class="math inline">\(\mathcal{N}(\mathbf{X}^T)=\mathcal{R}(\mathbf{X})^{\perp}\)</span> and <span class="math inline">\(\mathcal{R}(\mathbf{X}) \oplus \mathcal{N}(\mathbf{X}^T) = \mathbb{R}^n\)</span>.</li>
 </ul></li>
-<li><span class="math inline">\(\mathbf{R} \in \mathbb{R}^{n \times p}\)</span> is upper triangular with positive diagonal entries.
+<li><span class="math inline">\(\mathbf{R} \in \mathbb{R}^{n \times p}\)</span> is upper triangular with positive diagonal entries. (The positivity constraint can be relaxed; see Householder QR below.)
 <ul>
 <li>The lower <span class="math inline">\((n-p)\times p\)</span> block of <span class="math inline">\(\mathbf{R}\)</span> is <span class="math inline">\(\mathbf{0}\)</span> (why?).</li>
 </ul></li>
@@ -4635,7 +4635,16 @@ Coefficients:
 <li><p>Now choose <span class="math inline">\(\mathbf{H}_1\)</span> so that <span class="math display">\[
   \mathbf{H}_1 \mathbf{x}_1 = \begin{pmatrix} \pm\|\mathbf{x}_{1}\|_2 \\ 0 \\ \vdots \\ 0 \end{pmatrix}.
 \]</span> That is, <span class="math inline">\(\mathbf{x} = \mathbf{x}_1\)</span> and <span class="math inline">\(\mathbf{w} = \pm\|\mathbf{x}_1\|_2\mathbf{e}_1\)</span>.</p></li>
-<li><p>Left-multiplying <span class="math inline">\(\mathbf{H}_1\)</span> zeros out the first column of <span class="math inline">\(\mathbf{X}\)</span> below (1, 1).</p></li>
+<li><p>Left-multiplying <span class="math inline">\(\mathbf{H}_1\)</span> zeros out the first column of <span class="math inline">\(\mathbf{X}\)</span> below (1, 1): <span class="math display">\[
+\mathbf{H}_1\mathbf{X} =
+\begin{bmatrix}
+\times &amp; \times &amp; \times &amp; \times \\
+0 &amp; \times &amp; \times &amp; \times  \\
+0 &amp; \times &amp; \times &amp; \times  \\
+0 &amp; \times &amp; \times &amp; \times  \\
+0 &amp; \times &amp; \times &amp; \times
+\end{bmatrix}
+\]</span></p></li>
 <li><p>Take <span class="math inline">\(\mathbf{H}_2\)</span> to zero the second column below diagonal: <span class="math display">\[
 \mathbf{H}_2\mathbf{H}_1\mathbf{X} =
 \begin{bmatrix}
@@ -4853,8 +4862,8 @@ attr(,&quot;class&quot;)
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1]          [,2]          [,3]
 [1,]    1  0.000000e+00  0.000000e+00
-[2,]    0  1.000000e+00 -1.027669e-16
-[3,]    0 -1.027669e-16  1.000000e+00</code></pre>
+[2,]    0  1.000000e+00 -6.351456e-17
+[3,]    0 -6.351456e-17  1.000000e+00</code></pre>
 </div>
 </details>
 </div>
@@ -5038,7 +5047,7 @@ A}\)</span>: <span class="math display">\[
 <ul>
 <li><p>When the Gram matrix <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> is singular (this happens if <span class="math inline">\(\text{rank}(\mathbf{X})&lt;p\)</span>, in particular <span class="math inline">\(n &lt; p\)</span>), the normal equation <span class="math inline">\(\mathbf{X}^T\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^T\mathbf{y}\)</span> is <em>underdetermined</em>.</p></li>
 <li><p>It has <em>many</em> solutions unless an additional condition is added.</p></li>
-<li><p>Typically we require solution <span class="math inline">\(\mathbf{x}\)</span> has a smallest norm; the solution depends on the choice of the norm.</p></li>
+<li><p>Typically we require solution <span class="math inline">\(\boldsymbol{\beta}\)</span> has a smallest norm; the solution depends on the choice of the norm.</p></li>
 <li><p>Example: minimum <span class="math inline">\(\ell_2\)</span> norm solution <span class="math display">\[
   \text{minimize}~\|\boldsymbol{\beta}\|_2 ~\text{subject to}~\mathbf{X}^T\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^T\mathbf{y}
 \]</span></p>
