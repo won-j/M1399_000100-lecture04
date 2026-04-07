@@ -4862,8 +4862,8 @@ attr(,&quot;class&quot;)
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1]          [,2]          [,3]
 [1,]    1  0.000000e+00  0.000000e+00
-[2,]    0  1.000000e+00 -6.351456e-17
-[3,]    0 -6.351456e-17  1.000000e+00</code></pre>
+[2,]    0  1.000000e+00 -1.027669e-16
+[3,]    0 -1.027669e-16  1.000000e+00</code></pre>
 </div>
 </details>
 </div>
@@ -5059,7 +5059,7 @@ A}\)</span>: <span class="math display">\[
   \text{minimize}~\|\boldsymbol{\beta}\|_0 ~\text{subject to}~\mathbf{X}^T\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^T\mathbf{y}
 \]</span></p>
 <ul>
-<li><span class="math inline">\(\|\mathbf{x}\|_0 \triangleq \sum_{i=1}^p \mathbf{1}_{\{x_i\neq 0\}}\)</span>, the “sparsest” solution.</li>
+<li><span class="math inline">\(\|\boldsymbol{\beta}\|_0 \triangleq \sum_{i=1}^p \mathbf{1}_{\{\beta_i\neq 0\}}\)</span>, the “sparsest” solution.</li>
 <li>Model selection problem. Combinatorial (intractable if <span class="math inline">\(p\)</span> large).</li>
 </ul></li>
 <li><p>Compromise: minimum <span class="math inline">\(\ell_1\)</span> norm solution<br>
