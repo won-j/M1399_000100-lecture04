@@ -682,7 +682,7 @@ $$
 $$
     \text{minimize}~\|\boldsymbol{\beta}\|_0 ~\text{subject to}~\mathbf{X}^T\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^T\mathbf{y}
 $$
-    - $\|\mathbf{x}\|_0 \triangleq \sum_{i=1}^p \mathbf{1}_{\{x_i\neq 0\}}$, the "sparsest" solution.
+    - $\|\boldsymbol{\beta}\|_0 \triangleq \sum_{i=1}^p \mathbf{1}_{\{\beta_i\neq 0\}}$, the "sparsest" solution.
     - Model selection problem. Combinatorial (intractable if $p$ large).
     
 * Compromise: minimum $\ell_1$ norm solution    
