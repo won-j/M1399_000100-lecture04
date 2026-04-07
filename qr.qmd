@@ -64,7 +64,7 @@ where
         - First $p$ columns of $\mathbf{Q}$ form an orthonormal basis of ${\cal R}(\mathbf{X})$ (**range** or column space of $\mathbf{X}$)      
         - Last $n-p$ columns of $\mathbf{Q}$ form an orthonormal basis of ${\cal N}(\mathbf{X}^T)$ (**null space** of $\mathbf{X}^T$)
         - Recall that $\mathcal{N}(\mathbf{X}^T)=\mathcal{R}(\mathbf{X})^{\perp}$ and $\mathcal{R}(\mathbf{X}) \oplus \mathcal{N}(\mathbf{X}^T) = \mathbb{R}^n$.
-    - $\mathbf{R} \in \mathbb{R}^{n \times p}$  is upper triangular with positive diagonal entries. 
+    - $\mathbf{R} \in \mathbb{R}^{n \times p}$  is upper triangular with positive diagonal entries. (The positivity constraint can be relaxed; see Householder QR below.) 
         - The lower $(n-p)\times p$ block of $\mathbf{R}$ is $\mathbf{0}$ (why?).
 
  * **Reduced QR decomposition**:
@@ -346,7 +346,18 @@ $$
 $$
 That is, $\mathbf{x} = \mathbf{x}_1$ and $\mathbf{w} = \pm\|\mathbf{x}_1\|_2\mathbf{e}_1$.
 
-* Left-multiplying $\mathbf{H}_1$ zeros out the first column of $\mathbf{X}$ below (1, 1).
+* Left-multiplying $\mathbf{H}_1$ zeros out the first column of $\mathbf{X}$ below (1, 1):
+$$
+\mathbf{H}_1\mathbf{X} = 
+\begin{bmatrix} 
+\times & \times & \times & \times \\ 
+0 & \times & \times & \times  \\
+0 & \times & \times & \times  \\
+0 & \times & \times & \times  \\
+0 & \times & \times & \times 
+\end{bmatrix} 
+$$
+
 
 * Take $\mathbf{H}_2$ to zero the second column below diagonal:
 $$
@@ -657,7 +668,7 @@ Remarks:
 
 * It has *many* solutions unless an additional condition is added.
 
-* Typically we require solution $\mathbf{x}$ has a smallest norm; the solution depends on the choice of the norm.
+* Typically we require solution $\boldsymbol{\beta}$ has a smallest norm; the solution depends on the choice of the norm.
 
 * Example: minimum $\ell_2$ norm solution
 $$
